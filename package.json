@@ -10,24 +10,24 @@
     "path": "^0.12.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/node": "^7.8.7",
-    "@babel/plugin-transform-react-jsx": "^7.9.1",
-    "@babel/preset-env": "^7.9.0",
-    "@babel/preset-react": "^7.9.1",
-    "babel-plugin-file-loader": "^2.0.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-register": "^6.26.0",
-    "ignore-styles": "^5.0.1",
-    "nodemon": "^2.0.2"
+    "@babel/core": "7.5.5",
+    "@babel/preset-env": "7.1.6",
+    "@babel/preset-react": "7.0.0",
+    "babel-loader": "8.1.0",
+    "file-loader": "3.0.1",
+    "react-scripts": "3.4.1",
+    "webpack": "4.42.0",
+    "webpack-cli": "3.3.7",
+    "webpack-node-externals": "1.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "prebuild": "INLINE_RUNTIME_CHUNK=false react-scripts build",
+    "build": "NODE_ENV=production webpack --progress --mode production --config webpack.config.server.js",
+    "start": "node build/server.js",
+    "start:dev": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "ssr": "node Server/index.js"
