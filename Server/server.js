@@ -24,7 +24,7 @@ app.get( "/*", ( req, res ) => {
       return res.status(500).send("Some error occurred");
     }
 
-    res.writeHead( 200, { "Content-Type": "text/html" } );
+    // res.writeHead( 200, { "Content-Type": "text/html" } );
 
     // res.end( htmlTemplate( reactDom ) );
 
@@ -33,7 +33,7 @@ app.get( "/*", ( req, res ) => {
 
 } );
 
-app.use( express.static( path.resolve( __dirname, "..", "build" ) ) );
+app.use(express.static(path.resolve('./build')));
 
 const port = 2048;
 app.listen( port, ()=>{ console.log(`The server is up on port ${ port }!`); } );

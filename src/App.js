@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { Link, Switch, Route } from "react-router-dom";
 import { StaticRouter, BrowserRouter  } from "react-router-dom";
+import Logo from './logo.svg';
+import './App.css';
 
 const App = ({context, location }) => {
   const [ title, setTitle ] = useState('My New Title');
 
   const SelectedRouter = ({ children }) => {
+    console.log('location>>', JSON.stringify(location));
     return process.env.NODE_ENV === "development" ? <BrowserRouter>{ children }</BrowserRouter> : <StaticRouter context={ context } location={ location }>{ children } </StaticRouter>;
   };
 
   return (
-    <div>
+    <div className="App" alt="">
+      <img src={Logo} className="App-logo"/>
       <SelectedRouter>
         <h1>{title}</h1>
         <div>
