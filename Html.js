@@ -12,8 +12,6 @@ const Html = ({ content, assets }) => {
         <meta name="theme-color" content="#000000" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="shortcut icon" href="/favicon.ico" />
-        {/*{helmet.meta.toComponent()}*/}
-        {/*{helmet.title.toComponent()}*/}
         {assets.css &&
           assets.css.map((c, idx) => (
             <link key={idx} href={c} rel="stylesheet" />
@@ -23,14 +21,6 @@ const Html = ({ content, assets }) => {
       <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root" dangerouslySetInnerHTML={{ __html: content }} />
-        {/*<script*/}
-        {/*  dangerouslySetInnerHTML={{*/}
-        {/*    __html: `window.__APOLLO_STATE__=${JSON.stringify(state).replace(*/}
-        {/*      /</g,*/}
-        {/*      '\\u003c',*/}
-        {/*    )};`,*/}
-        {/*  }}*/}
-        {/*/>*/}
         {assets.js &&
           assets.js.map((j, idx) => (
             <script key={idx} src={j} />

@@ -1,5 +1,6 @@
 # React SSR Basic Wiring
-
+ very basic implementation of Server Side Rendering with Create React App with Express.
+ Followed some youtube videos and took some code from the repo below and simplified it for Express.
 
 references:
 ```
