@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, Switch, Route } from "react-router-dom";
 import Logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Button } from 'reactstrap';
 
 const App = () => {
   const [ title, setTitle ] = useState('My New Title');
@@ -10,6 +11,9 @@ const App = () => {
     <div className="App" alt="">
       <img src={Logo} className="App-logo"/>
         <h1>{title}</h1>
+      <div className="p-4">
+        <Button color="success">Bootstrap Button</Button>
+      </div>
         <div>
           <Link to="/">Home</Link>&nbsp;
           <Link to="/about">About</Link>&nbsp;
