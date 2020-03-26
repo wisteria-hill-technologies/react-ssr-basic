@@ -3,6 +3,7 @@ import { Link, Switch, Route } from "react-router-dom";
 import Logo from './logo.svg';
 import './App.scss';
 import { Button } from 'reactstrap';
+import Editor from './Editor';
 
 const App = () => {
   const [ title, setTitle ] = useState('My New Title');
@@ -13,6 +14,9 @@ const App = () => {
         <h1>{title}</h1>
       <div className="p-4">
         <Button color="success">Bootstrap Button</Button>
+      </div>
+      <div className="p-4">
+        <Editor />
       </div>
         <div>
           <Link to="/">Home</Link>&nbsp;
