@@ -5,9 +5,9 @@ import './App.scss';
 import { Button } from 'reactstrap';
 import Editor from './Editor';
 
-const App = () => {
+const App = ({ store }) => {
   const [ title, setTitle ] = useState('My New Title');
-  const [ message, setMessage ] = useState('');
+  const [ message, setMessage ] = useState(store || '');
   useEffect(()=> {
     fetch('/api/hello').then((res) => res.json()).then(({ greeting }) => setMessage(greeting));
   }, []);
@@ -16,6 +16,7 @@ const App = () => {
     <div className="App" alt="">
       <img src={Logo} className="App-logo"/>
         <h1>{title}</h1>
+      <p>Window.store: {typeof window !== 'undefined' && window.store}</p>
       <p>My Message: {message}</p>
       <div className="p-4">
         <Button color="success">Bootstrap Button</Button>
