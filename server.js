@@ -1,3 +1,4 @@
+require('dotenv').config();
 import express from "express";
 import path from 'path';
 import React from "react";
@@ -31,7 +32,7 @@ app.use(async ( req, res ) => {
   res.end();
 } );
 
-const port = 2048;
+const port = process.env.PORT || 2048;
 app.listen( port, ()=>{ console.log(`The server is up on port ${ port }!`); } );
 
 

@@ -14,7 +14,7 @@ const Html = ({ content, assets }) => {
         <link rel="shortcut icon" href="/favicon.ico" />
         {assets.css &&
           assets.css.map((c, idx) => (
-            <link key={idx} href={c} rel="stylesheet" />
+            <link key={idx} href={`${process.env.PUBLIC_PATH}${c}`} rel="stylesheet" />
           ))}
       </head>
 
@@ -23,7 +23,7 @@ const Html = ({ content, assets }) => {
         <div id="root" dangerouslySetInnerHTML={{ __html: content }} />
         {assets.js &&
           assets.js.map((j, idx) => (
-            <script key={idx} src={j} />
+            <script key={idx} src={`${process.env.PUBLIC_PATH}${j}`} />
           ))}
       </body>
     </html>

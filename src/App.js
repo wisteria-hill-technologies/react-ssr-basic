@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Switch, Route } from "react-router-dom";
 import Logo from './logo.svg';
 import './App.scss';
@@ -7,11 +7,16 @@ import Editor from './Editor';
 
 const App = () => {
   const [ title, setTitle ] = useState('My New Title');
+  const [ message, setMessage ] = useState('');
+  useEffect(()=> {
+    fetch('/api/hello').then((res) => res.json()).then(({ greeting }) => setMessage(greeting));
+  }, []);
 
   return (
     <div className="App" alt="">
       <img src={Logo} className="App-logo"/>
         <h1>{title}</h1>
+      <p>My Message: {message}</p>
       <div className="p-4">
         <Button color="success">Bootstrap Button</Button>
       </div>

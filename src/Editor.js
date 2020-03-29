@@ -3,10 +3,16 @@ import './Editor.scss';
 
 export default class FormHtmlEditor extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     if (typeof window !== 'undefined') {
       this.ReactQuill = require('react-quill')
     }
+    this.state = { text: '' };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(value) {
+    this.setState({ text: value });
   }
 
   render() {
@@ -14,10 +20,11 @@ export default class FormHtmlEditor extends Component {
     if (typeof window !== 'undefined' && ReactQuill) {
       return (
         <ReactQuill
-          onChange={this.props.onChange}
+          value={this.state.text}
+          onChange={this.handleChange}
           theme="snow"
-          value={this.props.value}
         />
+
       )
     } else {
       return <textarea />;
