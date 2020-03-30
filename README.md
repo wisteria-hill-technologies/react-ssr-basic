@@ -14,13 +14,33 @@
   2. To publicPath in webpack.config.server.js file.
  
 #### Typical Errors with SSR
+
+- directly importing css file for libraries in react components like below:
+```
+import 'react-quill/dist/quill.snow.css';
+```
+will result in an error like below:
+```
+.ql-container {
+^
+
+SyntaxError: Unexpected token '.'
+
+```
+For now, I import it in scss/css file like below:
+```
+@import '~react-quill/dist/quill.snow.css';
+```
+
+- Other errors:
 ```/Users/nobuyukifujioka/Documents/noby-coding/progress-maker-ui/node_modules/reactstrap/es/Button.js:1
   import _extends from "@babel/runtime/helpers/esm/extends";
   ^^^^^^
   
   SyntaxError: Cannot use import statement outside a module
 ```
- - Seen issue with class component where 'state =' instead of 'this.state' in constructor.
+ - Seen issue with class component where 'state =' instead of 'this.state' in constructor. also, if class component, do not use arrow function for class functions, but use bind.
+ 
  
  - 'document not found': 'document not found' as document or window object does not exist in node.  Add conditional to avoid this error.
  
