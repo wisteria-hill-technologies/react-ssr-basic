@@ -4,6 +4,8 @@
  
  However, most tutorials do not show how to load static assets and images in ssr.
  
+* This example works with node version 12.
+
 #### Passing Data in initial SSR
 - Pass initial data as prop to the App component shared between ui and server.
 - can pass data in window object for ui but it will not be rendered in server side because window object does not exist in server. 
