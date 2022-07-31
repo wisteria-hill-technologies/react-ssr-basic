@@ -7,6 +7,7 @@ import Editor from './Editor';
 
 const App = ({ store }) => {
   const [ title, setTitle ] = useState('My New Title');
+  const [ count, setCount ] = useState(0);
   const [ message, setMessage ] = useState(store || '');
   useEffect(()=> {
     fetch('/api/hello').then((res) => res.json()).then(({ greeting }) => setMessage(greeting));
@@ -16,10 +17,12 @@ const App = ({ store }) => {
     <div className="App" alt="">
       <img src={Logo} className="App-logo"/>
         <h1>{title}</h1>
+        <p>original store from server: {store}</p>
       <p>Window.store: {typeof window !== 'undefined' && window.store}</p>
       <p>My Message: {message}</p>
       <div className="p-4">
-        <Button color="success">Bootstrap Button</Button>
+        <Button color="success" onClick={()=> setCount((prev) => prev +1)}>Bootstrap Button: Add Count</Button>
+          <p>Count: { count }</p>
       </div>
       <div className="p-4">
         <Editor />
